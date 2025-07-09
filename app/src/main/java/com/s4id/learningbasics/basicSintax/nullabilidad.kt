@@ -1,4 +1,4 @@
-package com.s4id.learningbasics
+package com.s4id.learningbasics.basicSintax
 
 fun main(){
     var name:String? = "Said" //null

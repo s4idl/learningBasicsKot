@@ -1,6 +1,4 @@
-package com.s4id.learningbasics
-
-import kotlin.math.sin
+package com.s4id.learningbasics.basicSintax
 
 fun main(){
     //sinCambiosList()

@@ -1,4 +1,4 @@
-package com.s4id.learningbasics
+package com.s4id.learningbasics.basicSintax
 
 fun main(){
     val weekDays = arrayOf("Lunes", "Marte", "MIercoles", "Jueves", "Viernes", "Sabado", "Domingo")

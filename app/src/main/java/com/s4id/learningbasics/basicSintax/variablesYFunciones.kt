@@ -1,4 +1,4 @@
-package com.s4id.learningbasics
+package com.s4id.learningbasics.basicSintax
 
 //Int
 val age:Int = 30
