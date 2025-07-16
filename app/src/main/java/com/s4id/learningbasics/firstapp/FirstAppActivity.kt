@@ -1,5 +1,6 @@
 package com.s4id.learningbasics.firstapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -22,7 +23,9 @@ class FirstAppActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
             val name = etName.text.toString()
             if (name.isNotEmpty()){
-             Log.i("Said", "Se presiono $name")
+             val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra("EXTRA_NAME", name)
+                startActivity(intent)
         }
     }
     }

@@ -14,5 +14,6 @@
         tools:text="Esto es solo un ejemplo"
         android:layout_gravity="center"
         android:textColor="@color/teal_200"
+        />
 
 </FrameLayout>

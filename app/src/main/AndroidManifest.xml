@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningBasics">
         <activity
+            android:name=".MenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".firstapp.ResultActivity"
             android:exported="false"
             android:label="@string/title_activity_result"
@@ -19,11 +28,6 @@
         <activity
             android:name=".firstapp.FirstAppActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
