@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_margin="25dp"
     android:orientation="vertical"
     tools:context=".MenuActivity">
 
@@ -13,6 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SaludosApp"
+        />
+
+    <Button
+        android:id="@+id/btnIMCApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="IMCApp"
         />
 
 </LinearLayout>
