@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background_component">#1E1E36</color>
-    <color name="backgorund_component_selected">#4D58A2</color>
-    <color name="background_app">#E9E5ED</color>
-    <color name="background_button">#4CAF50</color>
+    <color name="backgorund_component_selected">#403B87</color>
+    <color name="background_app">#301351</color>
+    <color name="background_button">#0E4410</color>
     <color name="tittle_text">#F6D3D3</color>
 </resources>
