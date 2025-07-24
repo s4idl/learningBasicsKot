@@ -1,5 +1,6 @@
 package com.s4id.learningbasics.firstapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import com.s4id.learningbasics.R
 import kotlin.math.log
 
 class FirstAppActivity : AppCompatActivity() {
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_app)
