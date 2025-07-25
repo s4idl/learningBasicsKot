@@ -7,19 +7,25 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.compose.ui.text.font.FontWeight
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 import com.s4id.learningbasics.R
 
 private var isMaleSelected:Boolean = true
 private var isFemaleleSelected:Boolean = true
+private var currentWeight:Int = 70
 
 private lateinit var viewMale:CardView
 private lateinit var viewFemale:CardView
-private lateinit var viewHeight:TextView
+private lateinit var tvHeight:TextView
 private lateinit var rsHeight:RangeSlider
+private lateinit var substractWeight:FloatingActionButton
+private lateinit var plusWeight: FloatingActionButton
+private lateinit var tvWeight:TextView
 
 class ImcCalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +39,11 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private fun initComponents(){
         viewMale=findViewById(R.id.viewMale)
         viewFemale=findViewById(R.id.viewFemale)
-        viewHeight=findViewById(R.id.viewHeight)
+        tvHeight=findViewById(R.id.viewHeight)
         rsHeight=findViewById(R.id.rsHeight)
+        substractWeight=findViewById(R.id.substractWeight)
+        plusWeight=findViewById(R.id.plusWeight)
+        tvWeight=findViewById(R.id.tvWeight)
     }
 
     private fun initListeners(){
@@ -47,16 +56,22 @@ class ImcCalculatorActivity : AppCompatActivity() {
             setGenderColor()
         }
         rsHeight.addOnChangeListener{ _, value, _ ->
-            val df = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                DecimalFormat("#.##")
-            } else {
-                TODO("VERSION.SDK_INT < N")
-            }
+            val df = DecimalFormat("#.##")
             val result = df.format(value)
-            viewHeight.text = "$result cm"
+            tvHeight.text = "$result cm"
         }
+        plusWeight.setOnClickListener{
+            currentWeight += 1
+            setWeight()
+        }
+        substractWeight.setOnClickListener{}
+        currentWeight -= 1
+        setWeight()
     }
 
+    private fun setWeight(){
+        tvWeight.text = currentWeight.toString()
+    }
     private fun changeGender(){
         isMaleSelected = !isMaleSelected
         isFemaleleSelected = !isFemaleleSelected
@@ -81,6 +96,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun initUi(){
         setGenderColor()
+        setWeight()
     }
 
 

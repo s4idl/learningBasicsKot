@@ -13,7 +13,9 @@
         android:theme="@style/Theme.LearningBasics">
         <activity
             android:name=".imccalculator.ImcCalculatorActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:label="@string/title_activity_result"
+            android:theme="@style/Theme.LearningBasics" />
         <activity
             android:name=".MenuActivity"
             android:exported="true">
@@ -30,7 +32,9 @@
             android:theme="@style/Theme.LearningBasics" />
         <activity
             android:name=".firstapp.FirstAppActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

@@ -13,4 +13,5 @@
     <color name="background_app">#301351</color>
     <color name="background_button">#0E4410</color>
     <color name="tittle_text">#F6D3D3</color>
+    <color name="background_fab">#6200EE</color>
 </resources>
