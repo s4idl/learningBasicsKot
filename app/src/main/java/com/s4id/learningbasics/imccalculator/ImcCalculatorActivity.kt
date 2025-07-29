@@ -1,16 +1,13 @@
 package com.s4id.learningbasics.imccalculator
 
-import android.os.Build
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import java.text.DecimalFormat
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.compose.ui.text.font.FontWeight
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 import com.s4id.learningbasics.R
@@ -33,6 +30,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var subtractAge: FloatingActionButton
     private lateinit var plusAge: FloatingActionButton
     private lateinit var tvAge: TextView
+    private lateinit var btnCalculate: Button
 
     companion object{
         const val IMC_KEY = "IMC_RESULT"
@@ -57,6 +55,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
         subtractAge = findViewById(R.id.subtractAge)
         plusAge = findViewById(R.id.plusAge)
         tvAge = findViewById(R.id.tvAge)
+        btnCalculate = findViewById(R.id.btnCalculate)
     }
 
     private fun initListeners() {
@@ -89,6 +88,17 @@ class ImcCalculatorActivity : AppCompatActivity() {
             currentAge -= 1
             setAge()
         }
+
+        btnCalculate.setOnClickListener {
+            val result = calculateIMC()
+            navigateToResult(result)
+        }
+    }
+
+    private fun navigateToResult(result: Double){
+        val intent = Intent(this, ResultIMCActivity::class.java)
+        intent.putExtra(IMC_KEY, result)
+        startActivity(intent)
     }
 
 
