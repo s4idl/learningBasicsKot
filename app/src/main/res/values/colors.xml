@@ -14,4 +14,9 @@
     <color name="background_button">#0E4410</color>
     <color name="tittle_text">#F6D3D3</color>
     <color name="background_fab">#6200EE</color>
+
+    <color name="peso_bajo">#FFEB3B</color>
+    <color name="peso_normal">#4CAF50</color>
+    <color name="peso_sobrepeso">#FF5722</color>
+    <color name="obesidad">#FF1100</color>
 </resources>
