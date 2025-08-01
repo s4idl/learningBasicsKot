@@ -15,6 +15,6 @@ class CategoriesAdapter(private val categories:List<TaskCategory>) : RecyclerVie
 
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.render(categories[position])
     }
 }
