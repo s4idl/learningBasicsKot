@@ -1,11 +1,33 @@
 package com.s4id.learningbasics.todoapp
 
 import android.view.View
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.s4id.learningbasics.R
 
 class CategoriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    fun render(taskCategory: TaskCategory){
+    private val tvCategoryName: TextView = view.findViewById(R.id.tvCategorieName)
+    private val divider: View = view.findViewById(R.id.divider)
 
+    fun render(taskCategory: TaskCategory){
+        when (taskCategory){
+            TaskCategory.Bussines -> {
+                tvCategoryName.text = "Negocios"
+                divider.setBackgroundColor(
+                    ContextCompat.getColor(divider.context, R.color.todo_business_category) )
+            }
+            TaskCategory.Other -> {
+                tvCategoryName.text = "Otros"
+                divider.setBackgroundColor(
+                    ContextCompat.getColor(divider.context, R.color.todo_other_category) )
+            }
+            TaskCategory.Personal -> {
+                tvCategoryName.text = "Personal"
+                divider.setBackgroundColor(
+                    ContextCompat.getColor(divider.context, R.color.todo_personal_category) )
+            }
+        }
     }
 }
