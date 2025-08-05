@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,8 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/todo_categories"
-        android:textColor="@color/todo_subtitle_text"
-        android:layout_marginHorizontal="31dp"
+        android:layout_marginTop="32dp"
+        style="@style/TodoSubtitle"
         android:textSize="20sp">
 
     </TextView>
@@ -39,6 +44,38 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/todo_tasks"
+        style="@style/TodoSubtitle"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 
 
 </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        app:tint="@color/white"
+        android:backgroundTint="@color/todo_accent"
+        android:src="@drawable/ic_add"
+        app:fabSize="normal"
+        android:layout_gravity="end|bottom">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+</FrameLayout>
