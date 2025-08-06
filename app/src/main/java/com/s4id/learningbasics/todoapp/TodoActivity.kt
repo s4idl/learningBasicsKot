@@ -8,6 +8,10 @@ import androidx.compose.ui.window.Dialog
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.app.Dialog
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -53,6 +57,27 @@ class TodoActivity : AppCompatActivity() {
     private fun showDialog() {
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_task)
+
+        val btnAddTask: Button = dialog.findViewById(R.id.btnAddTask)
+        val etTask: EditText = dialog.findViewById(R.id.etTask)
+        val rgCategory: RadioGroup = dialog.findViewById(R.id.rgCategories)
+
+        btnAddTask.setOnClickListener {
+            val currentTask = etTask.text.toString()
+            if (currentTask.isNotEmpty()) {
+                val selectedId = rgCategory.checkedRadioButtonId
+                val selectedRadioButton:RadioButton = rgCategory.findViewById(selectedId)
+                val currentCategory:TaskCategory = when(selectedRadioButton.text){
+                    getString(R.string.todo_text_bussiness) -> Bussines
+                    getString(R.string.todo_text_personal) ->Personal
+                    else -> Other
+                }
+
+                tasks.add(Task(currentTask, currentCategory))
+                updateTask()
+                dialog.hide()
+            }
+            }
         dialog.show()
     }
 
@@ -72,4 +97,9 @@ class TodoActivity : AppCompatActivity() {
         rvTasks.adapter = tasksAdapter
 
     }
+
+    private fun updateTask(){
+        tasksAdapter.notifyDataSetChanged()
+    }
+
 }
