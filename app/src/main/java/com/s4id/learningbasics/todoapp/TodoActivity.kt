@@ -40,6 +40,7 @@ class TodoActivity : AppCompatActivity() {
 
     private lateinit var fabAddTask: FloatingActionButton
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
@@ -82,23 +83,37 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun initComponent() {
-        categoriesAdapter = CategoriesAdapter(categories)
+        rvCategories = findViewById(R.id.rvCategories)
         rvTasks = findViewById(R.id.rvTasks)
         fabAddTask = findViewById(R.id.fabAddTask)
     }
 
     private fun initUI() {
-        rvCategories = findViewById(R.id.rvCategories)
+        categoriesAdapter = CategoriesAdapter(categories){updateCategories(it)} // {position -> updateCategories(position)}
         rvCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
 
-        tasksAdapter = TasksAdapter(tasks)
+        tasksAdapter = TasksAdapter(tasks) {onItemSelected(it)}
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
 
     }
 
+    private fun onItemSelected(position:Int){
+        tasks[position].isSelected = !tasks[position].isSelected
+        updateTask()
+    }
+
+    private fun updateCategories(position: Int){
+        categories[position].isSelected = !categories[position].isSelected
+        categoriesAdapter.notifyItemChanged(position)
+        updateTask()
+    }
+
     private fun updateTask(){
+        val selectedCategories: List<TaskCategory> = categories.filter {it.isSelected}
+        val newTasks = tasks.filter{selectedCategories.contains(it.category)}
+        tasksAdapter.tasks = newTasks
         tasksAdapter.notifyDataSetChanged()
     }
 
